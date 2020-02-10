@@ -1,0 +1,42 @@
+// the 'Question' F.C.
+var Question = function(question, wrongAnswers, correctAnswer, questionPicker) {
+					this.question = question;
+					this.wrongAnswers = wrongAnswers;
+					this.correctAnswer = correctAnswer;
+	
+					// remember a method is declared w/ the function keyword and no name
+					this.questionPicker = function() {
+						
+						// the method controls the Window.prompt() call
+						var response = prompt (this.question);
+						
+						// we assign the PROMPT to a variable, so we can output a message as a response
+						if (response === this.correctAnswer) { 
+							alert('Correct Answer!'); 
+							console.log('Correct Answer') 
+						}
+
+						else {
+							alert('Incorrect!'); 
+							console.log('Incorrect Answer')
+						}
+					}
+			   };
+
+// Instance 1: Movie Question
+var question1 = new Question( 'What is the highest-grossing film?', ['Jurassic World', 'Avatar', 'Frozen'], 'Endgame' );
+
+// Instance 2: Media Question
+var question2 = new Question( 'What is the highest-grossing media franchise?' , ['Star Wars', 'Mario', 'Dragon Ball'], 'Pokemon' );
+
+// Instance 3: Manga Question
+var question3 = new Question( 'What is the best-selling manga?', ['Naruto', 'Dragon Ball', 'Case Closed'], 'One Piece' );
+
+// Instance 4: Album Question
+var question4 = new Question( 'What is the best-selling album?', ['Bat out of Hell\' by Meatloaf', 'Back in Black\' by AC/DC', 'The Dark Side of the Moon\' by Pink Floyd'], 'Thriller\' by Michael Jackson' );
+
+// we put all the questions(objects) into an array as a nested object
+var allQuestions = [ question1, question2, question3, question4 ];
+
+// calls the method
+question1.questionPicker();
